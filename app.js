@@ -15,5 +15,5 @@ app.listen(PORT, () => {
 
 app.get("/", (req, res) => {
     res.statusCode = 200
-    res.send("All good")
+    res.render("home.ejs", {parm: "hebhe"})
 })
