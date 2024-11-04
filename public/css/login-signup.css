@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    transform: translate(0, -10%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.input-group button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.input-group button:hover {
+    background-color: #0056b3;
+}
+
+.forgot-password {
+    display: block;
+    margin: 0 auto; /* Centers the button horizontally */
+    font-size: 12px; /* Makes the text small */
+    opacity: 0.6; /* Makes the text slightly opaque */
+    text-align: center; /* Ensures the text inside the button is centered */
+    padding: 10px 20px; /* Adds padding for better button appearance */
+    background-color: #fff;
+    /* Optional: Button background color */
+    color: #333; /* Optional: Button text color */
+    border: none; /* Optional: Button border */
+    border-radius: 5px; /* Optional: Rounded corners */
+    cursor: pointer; /* Adds a pointer on hover */
+    transition: opacity 0.3s ease; /* Smooth transition on hover */
+}
+
+.forgot-password:hover {
+    opacity: 0.8; /* Slightly increases opacity on hover */
+}

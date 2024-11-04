@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <% if (type === 'l') { %>
+    <title>Login</title>
+    <% } else if (type === 's') { %>
+    <title>Sign up</title>
+    <% } else if (type === 'f') { %>
+    <title>Forgot Password</title>
+    <% } else { %>
+    <title>Reset Password</title>
+    <% } %>
+    <link rel="stylesheet" href="css/login-signup.css">
+    <script src="js/login-signup.js"></script>
+</head>
+<body>
+    <div class="form-container">
+        <% if (type === 'l') { %>
+        <form action="/auth" method="POST">
+        <h2>Login</h2>
+        <% } else if (type === 's') { %>
+        <form action="/sign-up" method="POST">
+        <h2>Sign up</h2>
+        <% } else if (type === 'f') { %>
+        <form action="/forgot-password" method="POST">
+        <h2>Forgot Password</h2>
+        <% } else { %>
+        <form action="/reset-password" method="POST">
+        <h2>Reset Password</h2>   
+        <% } if (type !== 'l' && type !== 'r') { %>
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="email must be registed for newsletters" required>
+        </div>
+        <% } if (type !== 'f') { %>
+            <% if (type !== 'r') { %> 
+            <div class="input-group">
+                <label for="Username">Username</label>
+                <input type="text" id="Username" name="Username" required>
+            </div>
+            <% } %>
+            <div class="input-group">
+                <label for="Password">Password</label>
+                <input type="password" id="Password" name="Password" required>
+            </div>
+        <% } %>
+            <% if (type === 'r') { %>
+                <input type="hidden" name="token" id="token" value=<%= token %>>
+                <input type="hidden" name="email" id="email" value=<%= email %>>
+                <input type="hidden" name="tempCode" id="tempCode" value=<%= tempCode %>>
+            <% } if (type === 'l') { %>
+                <button type="button" onclick="forgotPassword()" class="forgot-password">Forgot Password</button>
+            <% } %>
+            <div class="input-group">
+                <button type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
