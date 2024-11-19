@@ -1,6 +1,6 @@
 const { readDatabase, updateEntry, addEntry, deleteEntry, doesValueExist } = require('./DatabaseManager')
-const Crypto = require("crypto")
 const UserError = require("./Errors")
+const Crypto = require("crypto")
 
 
 const setValue = async (identifier, key, value) => {
@@ -49,6 +49,7 @@ module.exports.setUserPassword = async (identifier, Password) => {
     if (!(await this.doesUserHaveAccount(identifier))) { throw new UserError("No account associated with user") }
     await this.setUserValue(identifier, "HashedPassword", Crypto.pbkdf2Sync(Password, await this.getUserValue(identifier, "Salt"), 10000, 64, 'sha512').toString("base64"))
 }
+
 
 module.exports.getUser = async (identifier) => {
     const users = await readDatabase()
